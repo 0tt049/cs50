@@ -7,24 +7,25 @@ int main(void)
     int userImput;
     do
     {
-    userImput = get_int("Height: ");
-    } while (userImput < 1 || userImput > 8);
+        userImput = get_int("Height: ");
+    }\n
+    while (userImput < 1 || userImput > 8);
 
     int steps = userImput;
-    while (steps >= 1)
+    while (steps >= 1) //1 loop for each step
     {
         int i;
-        for (i = 1; i < ((userImput + 1) * 2) - (steps - 1); i++)
+        for (i = 1; i < ((userImput + 1) * 2) - (steps - 1); i++) //1 loop for each charecter
         {
             if (i < steps)
             {
-                printf(" ");
+                printf(" "); //left white spaces
             }
             else if (i > userImput && i <= userImput + 2)
             {
-                printf(" ");
+                printf(" "); //white spaces gutter
             }
-            else
+            else //hash characters
             {
                 printf("#");
             }
