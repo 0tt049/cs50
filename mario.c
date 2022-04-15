@@ -8,7 +8,7 @@ int main(void)
     do
     {
         userImput = get_int("Height: ");
-    }\n
+    }
     while (userImput < 1 || userImput > 8);
 
     int steps = userImput;
