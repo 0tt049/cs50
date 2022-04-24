@@ -67,5 +67,8 @@ void which_card(long card_number)
         {
             printf("MASTERCARD\n");
         }
+        else {
+            printf("INVALID\n");
+        }
     }
 }
