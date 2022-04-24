@@ -76,13 +76,13 @@ void firstCheck(long cardnumber)
     if ((cardnumber >= (56 * (pow(10, 14)))) || cardnumber < (4 * (pow(10, 12))))
     {
         printf("INVALID\n");
-    } /*
-    else if (35 * (pow(10, 13)) <= cardnumber < (37 * (pow(10, 13))))
+    }
+    else if (cardnumber < 5)
     {
         printf("INVALID\n");
     }
     else
-    { */
+    {
         checksum(cardnumber);
-   /*  }
- */}
+    }
+}
