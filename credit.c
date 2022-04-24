@@ -65,7 +65,7 @@ void which_card(long card_number)
         }
         else if ((i == 14) && (x > 50 && x < 56))
         {
-            printf("MASTERACRD\n");
+            printf("MASTERCARD\n");
         }
     }
 }
