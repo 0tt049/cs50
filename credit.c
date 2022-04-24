@@ -6,7 +6,7 @@ void checksum(long);
 void which_card(long);
 void firstCheck(long);
 
-    int main(void)
+int main(void)
 {
     long user_number = get_long("Number: \n");
     firstCheck(user_number);
@@ -74,6 +74,10 @@ void which_card(long card_number)
 void firstCheck(long cardnumber)
 {
     if ((cardnumber >= (56 * (pow(10, 14)))) || cardnumber < (4 * (pow(10, 12))))
+    {
+        printf("INVALID\n");
+    }
+    else if (35 * (pow(10, 13)) <= cardnumber < (37 * (pow(10, 13))))
     {
         printf("INVALID\n");
     }
