@@ -6,6 +6,7 @@
 // Points assigned to each letter of the alphabet
 int POINTS[] = {1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10};
 
+// Function prototypes
 string makelower(string word);
 int compute_score(string word);
 
@@ -20,6 +21,7 @@ int main(void)
     int score1 = compute_score(word1);
     int score2 = compute_score(word2);
 
+    // Test if player 1 or 2 has the higher score, and prints the result.
     if (score1 > score2)
     {
         printf("Player 1 wins!\n");
@@ -28,12 +30,15 @@ int main(void)
     {
         printf("Player 2 wins!\n");
     }
+
+    // Test if scores are the same.
     else
     {
         printf("It's a tie!\n");
     }
 }
 
+// Function that computes the score while not giving points to characters outside a-zA-Z
 int compute_score(string word)
 {
     int score = 0;
