@@ -44,9 +44,14 @@ int main(int argc, string argv[])
     printf("Cyphertext: ");
     for (int i = 0, len = strlen(plaintext); i < len; i++)
     {
-        if (isalpha(plaintext[i]))
+        if (isalpha(plaintext[i]) && islower(plaintext[i]))
         {
-            printf("%c", plaintext[i] + (INTKEY % 26));
+            printf("%c", ((((plaintext[i] - 97) + INTKEY) % 26) + 97));
+        }
+
+        else if (isalpha(plaintext[i]) && isupper(plaintext[i]))
+        {
+            printf("%c", ((((plaintext[i] - 65) + INTKEY) % 26) + 65));
         }
         // If letter is not alphabet just print as is.
         else
