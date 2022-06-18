@@ -41,7 +41,7 @@ int main(int argc, string argv[])
     }
 
     // Cypher function iterate over letters. If its alphabetical it shifts the letter by "KEY" amount. %26 assures value will wrap over alphabet.
-    printf("cyphertext: ");
+    printf("ciphertext: ");
     for (int i = 0, len = strlen(plaintext); i < len; i++)
     {
         if (isalpha(plaintext[i]) && islower(plaintext[i]))
