@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <math.h>
 
 int count_letters(string text);
 int count_words(string text);
@@ -18,7 +19,9 @@ int main(void)
 
     float L = (letter / word) * 100;
     float S = (sentence / word) * 100;
-    int index = (0.0588 * L) - (0.296 * S) - 15.8;
+    float indexfloat = (0.0588 * L) - (0.296 * S) - 15.8;
+    int index = round(indexfloat);
+
     if (index < 0)
     {
         printf("Before grade 0\n");
