@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: Time decreases significantly as it sorts already sorted lists. It being O(n^2) and Omega(n) fits the criteria.
+
+sort2 uses: Merge sort
+
+How do you know?: It was the fastest across the board, and performed consistently sorting random lists or sorted lists. It being O(nlogn) and Omega(nlogn) fits the criteria.
+
+sort3 uses: Selection sort
+
+How do you know?: Time rises steadly as list gets bigger even with sorted lists. Its being O(n^2) and Omega(n^2) fits the criteria.
