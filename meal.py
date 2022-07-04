@@ -2,7 +2,7 @@
 def main():
     time = input("What time is it? ")
     if 7.0 <= convert(time) <= 8.0:
-        print(f"breakfest time")
+        print(f"breakfast time")
     elif 12.0 <= convert(time) <= 13.0:
         print(f"lunch time")
     elif 18.0 <= convert(time) <= 19.0:
