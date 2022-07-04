@@ -1,6 +1,6 @@
 import re
 # User prompt
-filename = input("Filename: ").lower()
+filename = input("Filename: ").lower().strip()
 
 # File name checker
 
