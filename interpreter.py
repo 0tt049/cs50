@@ -1,4 +1,4 @@
 # %%
 userIput = input("Expresion: ").lower().strip()
-print(eval(userIput))
+print(float(eval(userIput)))
 # %%
