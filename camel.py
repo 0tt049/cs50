@@ -11,7 +11,7 @@ def camel2snake(camel):
             print(i, end="")
         else:
             i = i.lower()
-            print(f"-{i}", end="")
+            print(f"_{i}", end="")
 
 
 # %%
