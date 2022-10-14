@@ -81,51 +81,55 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE imagecopy[height][width];
+    // Create temp array
+    RGBTRIPLE temp[height][width];
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            imagecopy[i][j] = image[i][j];
+            temp[i][j] = image[i][j];
         }
     }
-
-    for (int i = 1; i < height - 1; i++)
+    // Loop through rows
+    for (int i = 0; i < height; i++)
     {
-        for (int j = 1; j < width - 1; j++)
+        // Loop through columns
+        for (int j = 0; j < width; j++)
         {
-            float sumBlue = 0;
-            float sumGreen = 0;
-            float sumRed = 0;
-            int counter = 0;
+            // Initialise values
+            float sum_red;
+            float sum_blue;
+            float sum_green;
+            int counter;
+            sum_red = sum_blue = sum_green = counter = 0;
 
+            // For each pixel, loop vertical and horizontal
             for (int k = -1; k < 2; k++)
             {
                 for (int l = -1; l < 2; l++)
                 {
-                    if ((i + k) < 0 || (i + k) >= height)
+                    // Check if pixel is outside rows
+                    if (i + k < 0 || i + k >= height)
                     {
                         continue;
                     }
-                    if ((j + l) < 0 || (j + l) >= width)
+                    // Check if pixel is outside columns
+                    if (j + l < 0 || j + l >= width)
                     {
                         continue;
                     }
-                    else
-                    {
-                        sumBlue += imagecopy[i + k][j + l].rgbtBlue;
-                        sumGreen += imagecopy[i + k][j + l].rgbtGreen;
-                        sumRed += imagecopy[i + k][j + l].rgbtRed;
-                        counter++;
-                    }
+                    // Otherwise add to sums
+                    sum_red += temp[i + k][j + l].rgbtRed;
+                    sum_blue += temp[i + k][j + l].rgbtBlue;
+                    sum_green += temp[i + k][j + l].rgbtGreen;
+                    counter++;
                 }
             }
-
-            image[i][j].rgbtBlue = round(sumBlue / counter);
-            image[i][j].rgbtGreen = round(sumGreen / counter);
-            image[i][j].rgbtRed = round(sumRed / counter);
+            // Get average and blur image
+            image[i][j].rgbtRed = round(sum_red / counter);
+            image[i][j].rgbtGreen = round(sum_green / counter);
+            image[i][j].rgbtBlue = round(sum_blue / counter);
         }
     }
-
     return;
 }
