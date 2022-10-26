@@ -18,7 +18,7 @@ typedef struct node
 } node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 26;
+const unsigned int N = 100000;
 
 // Hash table
 node *table[N];
@@ -38,11 +38,10 @@ bool check(const char *word)
     //  Loop : cursor = cursor->next;
     //  Start with cursor set to first item in linked list
     //  Keep moving cursor until you get to NULL, checking each node for the word.
-    while (cursor->next != NULL)
+    while (cursor != NULL)
     {
-        if (strcasecmp(word, cursor->word) == 0 || strcasecmp(word, "A") == 0 || strcasecmp(word, "I") == 0)
+        if (strcasecmp(word, cursor->word) == 0)
         {
-            cursor = cursor->next;
             return true;
         }
         cursor = cursor->next;
@@ -53,18 +52,14 @@ bool check(const char *word)
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO: Improve this hash function
-    // Input: word, with alphabetical characters and (possibly) apostrophes
-    // Output: numerical index between 0 and N -1, inclusive
-    // Deterministic
-    // Larger N means more buckets
-    // If your function ends up with a value greater than N, you can take the value % N to get a value in the appropriate range
-    // Exemple
-    //  First letter
-    //  First two letters
-    //  Math using all the letters
-
-    return toupper(word[0]) - 'A';
+    // Function should take a string and return an index
+    // This hash function adds the ASCII values of all characters in     the word together
+    long sum = 0;
+    for (int i = 0; i < strlen(word); i++)
+    {
+        sum += tolower(word[i]);
+    }
+    return sum % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
@@ -75,6 +70,11 @@ bool load(const char *dictionary)
     //  Use fopen
     FILE *imput_pointer = fopen(dictionary, "r");
     //  Check if return value is NULL
+    if (dictionary == NULL)
+    {
+        printf("Unable to open %s\n", dictionary);
+        return false;
+    }
     // Read strings from file one at a time
     //  fscanf(file, %s, word)
     //  fscanf will return EOF once it reaches end of file
@@ -92,11 +92,10 @@ bool load(const char *dictionary)
         }
         //  Copy word into node using strcpy
         strcpy(w->word, buffer);
-        w->next = NULL;
         // Hash word to obtain a hash value
         //  Use the hash function
         //  Function takes a string and returns an index
-        int table_index = hash(w->word);
+        int table_index = hash(buffer);
         // Insert node into hash table at that location
         //  Recall that hash table is an array of linked lists
         //  Be sure to set pointers in the correct order
