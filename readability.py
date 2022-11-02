@@ -4,11 +4,8 @@ import cs50
 text = cs50.get_string("Text: ")
 
 letters = len(list(filter(str.isalpha, text)))
-print(letters)
 words = len(text.rsplit())
-print(words)
-sentences = len(text.rsplit(".")) - 1
-print(sentences)
+sentences = sum(1 for x in text if x in [".", "!", "?"]) - 1
 
 # Coleman algo
 L = (letters / words) * 100
