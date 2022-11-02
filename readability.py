@@ -3,9 +3,12 @@ import cs50
 # Asks user imput
 text = cs50.get_string("Text: ")
 
-letters = len(text.replace(" ", ""))
+letters = len(list(filter(str.isalpha, text)))
+print(letters)
 words = len(text.rsplit())
-sentences = len(text.rsplit("."))
+print(words)
+sentences = len(text.rsplit(".")) - 1
+print(sentences)
 
 # Coleman algo
 L = (letters / words) * 100
