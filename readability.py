@@ -5,7 +5,7 @@ text = cs50.get_string("Text: ")
 
 letters = len(list(filter(str.isalpha, text)))
 words = len(text.rsplit())
-sentences = len(text.rsplit(".")) - 1
+sentences = sum(list([1 for x in text if x in [".", "!", "?"]]))
 
 # Coleman algo
 L = (letters / words) * 100
