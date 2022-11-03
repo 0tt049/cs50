@@ -4,7 +4,7 @@ import sys
 
 def main():
 
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 3:
         sys.exit("Usage: python dna.py data.csv sequence.txt")
 
     database = []
