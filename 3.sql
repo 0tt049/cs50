@@ -1,5 +1,3 @@
-SELECT name FROM
-    (SELECT * FROM songs
-    ORDER BY duration_ms
-    LIMIT 5)
-ORDER BY duration_ms DESC;
+SELECT name FROM songs
+ORDER BY duration_ms DESC
+LIMIT 5;
