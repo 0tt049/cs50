@@ -3,8 +3,9 @@
 -- You may assume that there is only one person in the database with the name Chadwick Boseman.
    SELECT title
      FROM movies
-    WHERE id IN (
-             SELECT movie_id
+    INNER JOIN (
+             SELECT movie_id,
+                    rating
                FROM ratings
               WHERE movie_id IN (
                        SELECT movie_id
@@ -15,6 +16,7 @@
                                   WHERE name = "Chadwick Boseman"
                               )
                     )
-           ORDER BY rating DESC
-              LIMIT 5
-          )
+          ) ON id = movie_id
+ ORDER BY rating DESC,
+          title
+    LIMIT 5
