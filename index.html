@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+        rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <script>
+            // TODO: Add code to check answers to questions
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice </h2>
+            <hr>
+            <!-- TODO: Add multiple choice question here -->
+            <h3>Which one is considered to be the first Object Oriented
+                Programming Language?</h3>
+            <ul>
+                <button class="ans_button" id="smalltalk">Smalltalk</button>
+                <button class="ans_button" id="cpp">C++</button>
+                <button class="ans_button" id="python">Python</button>
+                <button class="ans_button" id="simula">Simula</button>
+                <button class="ans_button" id="algol">Algol</button>
+            </ul>
+            <h3 class="corr_inco"></h3>
+            <script>
+                var ans_button = document.querySelectorAll('.ans_button');
+                for (let i = 0; i < ans_button.length; i++) {
+                    ans_button[i].addEventListener('click', () => {
+                        if (ans_button[i].innerText == "Simula") {
+                            ans_button[i].style.background = 'green';
+                            document.querySelector('.corr_inco').innerText = "CORRECT!"
+                        }
+                        else {
+                            ans_button[i].style.background = 'red';
+                            document.querySelector('.corr_inco').innerText = "INCORRECT!"
+                        }
+                    })
+                }
+            </script>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <!-- TODO: Add free response question here -->
+            <h3>How one <em>prints</em> the sentence <code
+                    style="font-size: 10pt">Hello World</code> in Ruby?</h3>
+            <ul>
+                <input type="text" placeholder="Your answer">
+                <button type="submit" id="submit">Submit</button>
+            </ul>
+            <h3 class="corr_inco2"></h3>
+            <script>
+                var ans_text = document.querySelector('input');
+                document.querySelector('#submit').addEventListener('click', () => {
+                    if (ans_text.value == 'puts "Hello World"') {
+                        ans_text.style.backgroundColor = 'green';
+                        document.querySelector('.corr_inco2').innerText = 'CORRECT';
+                    }
+                    else {
+                        ans_text.style.backgroundColor = 'red';
+                        document.querySelector('.corr_inco2').innerText = 'INCORRECT';
+                    }
+                })
+
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
